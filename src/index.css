@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.min-h-screen {
+    min-height: 100vh;
+  }
+
+.post-content p {
+    padding:10px 0px;
+    font-size: 19px;
+}
+
+.post-content code {
+    background-color: #0B101A;
+    padding: 4px;
+    border-radius: 5px;
+}
+
+.post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6 {
+    padding: 10px 0px;
+    margin: 7px 0px;
+}
+
+.wp-block-button__link {
+    padding: 20px;
+    background-color: indigo;
+    margin-top: 12px;
+    margin-bottom: 20px;
+}
+
+.wp-block-syntaxhighlighter-code  {
+    padding: 10px;
+    background-color: rgb(11, 16, 26);
+    font-size: 20px;
+    margin: 20px 0px;
+    border-radius: 10px;
+    word-wrap: break-word;
+}
+
+.wp-block-syntaxhighlighter-code:hover {
+    cursor: text;
+}
+
+.wp-block-image {
+    max-width: 80%;
+}
+
+[class*="wp-block"] {
+    max-width: 80%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.post-header {
+    margin-left: 4px;
+    margin-top: 4px;
+}
+
+.wp-block-image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.wp-block-image img {
+    max-width: 100%;
+}
+
+.wp-block-audio {
+    width: 100%;
+}
+.wp-block-audio audio {
+    width: 100%;
+}
+
+.wp-block-quote {
+    border-left: 5px solid #0a0e16;
+    margin: 1.5em 0;
+    padding: 0.5em 1em;
+  }
+  
+  .wp-block-quote p {
+    font-style: italic;
+    margin: 0;
+  }
+  
+  .wp-block-quote cite {
+    display: block;
+    margin-top: 0.5em;
+    font-style: normal;
+  }
+  
