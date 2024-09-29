@@ -5,6 +5,7 @@ import AllPosts from './components/AllPosts.js';
 import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 import './index.css';
+import { Helmet } from 'react-helmet';
 
 class Comment {
   constructor(author, authorLink, postDate, content, replies, ID, parent, profile) {
@@ -101,6 +102,8 @@ function PostPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    document.title = "hamdivazim - Blog Post" + " (#" + id + ")";
+
     const fetchData = async () => {
       try {
         const response = await fetch(`https://public-api.wordpress.com/wp/v2/sites/hamdivazimblog.wordpress.com/posts/${id}`);
@@ -115,6 +118,8 @@ function PostPage() {
         setData(content[0]);
         setTitle(resp.title.rendered);
         setExtras([date.toLocaleDateString(), content[1]]);
+
+        document.title = "hamdivazim - " + resp.title.rendered + " (#" + id + ")";
 
         hljs.highlightAll();
         setLoading(false);
@@ -151,6 +156,15 @@ function PostPage() {
   if (loading) {
     return (
       <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+        <Helmet>
+          <meta name="description" content={"Blog Post by Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog."} />
+          <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+          <meta property="og:title" content="Hamd Waseem - About" />
+          <meta property="og:description" content={"Blog Post - Hamd Waseem"} />
+          <meta property="og:image" content="./banner.png" />
+        </Helmet>
+
         <Navbar />
         <div className="container mx-auto px-4 py-8">
           <div className="lg:flex lg:justify-center">
@@ -173,6 +187,15 @@ function PostPage() {
     if (!(/^\d+$/.test(id))) {
       return (
         <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+          <Helmet>
+            <meta name="description" content={"Blog Post by Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog."} />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem - About" />
+            <meta property="og:description" content={"Blog Post - Hamd Waseem"} />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
+
           <Navbar />
           <div className="container mx-auto px-4 py-8 text-red-300">
             <div className="bg-red-700 border border-red-900 rounded p-4">
@@ -185,6 +208,15 @@ function PostPage() {
     } else if (error.message === "404") {
       return (
         <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+          <Helmet>
+            <meta name="description" content={"Blog Post by Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog."} />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem - About" />
+            <meta property="og:description" content={"Blog Post - Hamd Waseem"} />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
+
           <Navbar />
           <div className="container mx-auto px-4 py-8 text-red-300">
             <div className="bg-red-700 border border-red-900 rounded p-4">
@@ -197,6 +229,15 @@ function PostPage() {
     } else {
       return (
         <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+          <Helmet>
+            <meta name="description" content={"Blog Post by Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog."} />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem - About" />
+            <meta property="og:description" content={"Blog Post - Hamd Waseem"} />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
+
           <Navbar />
           <div className="container mx-auto px-4 py-8 text-red-300">
             <div className="bg-red-700 border border-red-900 rounded p-4">
@@ -211,6 +252,15 @@ function PostPage() {
 
   return (
     <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+      <Helmet>
+        <meta name="description" content={`${title} by Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog.`} />
+        <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+        <meta property="og:title" content="Hamd Waseem - About" />
+        <meta property="og:description" content={`${title} - Hamd Waseem`} />
+        <meta property="og:image" content="./banner.png" />
+      </Helmet>
+
       <Navbar />
       <div className="container mx-auto px-4 py-8">
         <div className="lg:flex lg:justify-center">

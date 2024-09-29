@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
-import About from "./components/About";
-import Contact from "./components/Contact";
 import Navbar from "./components/Navbar";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Blog from "./components/Blog";
+import { Helmet } from 'react-helmet';
 import './index.css';
 
 class MyComponent extends Component {
+  
+
   constructor(props) {
     super(props);
     this.state = {
@@ -47,12 +45,24 @@ class MyComponent extends Component {
       });
   }
 
+  
+
   render() {
     const { data, loading, error } = this.state;
 
     if (loading) {
       return (
         <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+          <Helmet>
+            <title>Hamd Waseem - About</title>
+
+            <meta name="description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem - About" />
+            <meta property="og:description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
 
       <Navbar />
       
@@ -78,6 +88,16 @@ class MyComponent extends Component {
       return (
         <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
 
+          <Helmet>
+            <title>Hamd Waseem - About</title>
+
+            <meta name="description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem - About" />
+            <meta property="og:description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
+
       <Navbar />
       
       <div className="container mx-auto flex px-20 py-20 md:flex-row flex-col items-center">
@@ -100,6 +120,17 @@ class MyComponent extends Component {
 
     return (
       <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+
+          <Helmet>
+            <title>Hamd Waseem - About</title>
+
+            <meta name="description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem - About" />
+            <meta property="og:description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
 
       <Navbar />
       

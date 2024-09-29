@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from './components/Navbar.js';
 import './index.css'
+import { Helmet } from 'react-helmet';
 
 function PostPage() {
   const { id } = useParams();
@@ -12,6 +13,8 @@ function PostPage() {
   const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
+      document.title = "Hamd Waseem's Projects";
+
       const fetchData = async () => {
           try {
               const response = await fetch('https://public-api.wordpress.com/wp/v2/sites/hamdivazimblog.wordpress.com/pages/47');
@@ -73,6 +76,17 @@ function PostPage() {
     if (loading) {
       return (
         <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+        <Helmet>
+          <title>Hamd Waseem's Projects</title>
+
+          <meta name="description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+          <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+          <meta property="og:title" content="Hamd Waseem's - About" />
+          <meta property="og:description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+          <meta property="og:image" content="./banner.png" />
+        </Helmet>
+
         <Navbar />
         <div className="container mx-auto px-4 py-8">
           <div className="lg:flex lg:justify-center">
@@ -98,6 +112,17 @@ function PostPage() {
     if (error) {
       return (
         <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+          <Helmet>
+            <title>Hamd Waseem's Projects</title>
+
+            <meta name="description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem's - About" />
+            <meta property="og:description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
+
         <Navbar />
         <div className="container mx-auto px-4 py-8">
           <div className="lg:flex lg:justify-center">
@@ -133,6 +158,17 @@ function PostPage() {
   
     return (
       <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+        <Helmet>
+          <title>Hamd Waseem's Projects</title>
+
+          <meta name="description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+          <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+          <meta property="og:title" content="Hamd Waseem's - About" />
+          <meta property="og:description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+          <meta property="og:image" content="./banner.png" />
+        </Helmet>
+
         <Navbar />
         <div className="container mx-auto px-4 py-8">
           <div className="lg:flex lg:justify-center">

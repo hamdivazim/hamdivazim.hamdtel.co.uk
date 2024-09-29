@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import Navbar from './Navbar.js';
 import '../index.css'
+import { Helmet } from 'react-helmet';
 
 function PostPage() {
     const { id } = useParams();
@@ -12,6 +13,8 @@ function PostPage() {
     const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
+      document.title = "Hamd Waseem's Blog"
+
       const fetchData = async () => {
         try {
           const response = await fetch('https://public-api.wordpress.com/wp/v2/sites/hamdivazimblog.wordpress.com/posts/');
@@ -37,6 +40,17 @@ function PostPage() {
     if (loading) {
       return (
         <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+          <Helmet>
+            <title>Hamd Waseem's Blog</title>
+
+            <meta name="description" content="Hamd Waseem's Blog - Python, AWS, Swift, SQL and more!" />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem's Blog - Insights on Python, Swift, AWS & More" />
+            <meta property="og:description" content="Visit Hamd Waseem's blog and read high quality blog posts on Python, Swift, AWS, data analytics and more! Discover insights and tutorials today!" />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
+
         <div className="container mx-auto px-4 py-8">
           <div className="lg:flex lg:justify-center">
             <div className="lg:w-11/12">
@@ -59,6 +73,17 @@ function PostPage() {
     if (error) {
         return (
             <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+            <Helmet>
+              <title>Hamd Waseem's Blog</title>
+
+              <meta name="description" content="Hamd Waseem's Blog - Python, AWS, Swift, SQL and more!" />
+              <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+              <meta property="og:title" content="Hamd Waseem's Blog - Insights on Python, Swift, AWS & More" />
+              <meta property="og:description" content="Visit Hamd Waseem's blog and read high quality blog posts on Python, Swift, AWS, data analytics and more! Discover insights and tutorials today!" />
+              <meta property="og:image" content="./banner.png" />
+            </Helmet>
+
                 <div className="container mx-auto px-4 py-8">
                     <div>
                         <h2>An error ocurred while loading blog posts.</h2>
@@ -79,6 +104,18 @@ function PostPage() {
   
     return (
       <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+          <Helmet>
+            <title>Hamd Waseem's Blog</title>
+
+            <meta name="description" content="Hamd Waseem's Blog - Python, AWS, Swift, SQL and more!" />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem's Blog - Insights on Python, Swift, AWS & More" />
+            <meta property="og:description" content="Visit Hamd Waseem's blog and read high quality blog posts on Python, Swift, AWS, data analytics and more! Discover insights and tutorials today!" />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
+
+
         <div className="container mx-auto px-4 py-8">
           <div className="lg:flex lg:justify-center">
             <div className="lg:w-11/12">

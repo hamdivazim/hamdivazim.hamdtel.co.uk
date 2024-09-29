@@ -1,10 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './components/Navbar.js';
 import './index.css'
+import { Helmet } from 'react-helmet';
 
 function PostPage() {
     return (
       <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+        <Helmet>
+          <title>Hamd Waseem - 404 Not Found</title>
+
+          <meta name="description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+          <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+          <meta property="og:title" content="Hamd Waseem's - About" />
+          <meta property="og:description" content="Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog." />
+          <meta property="og:image" content="./banner.png" />
+        </Helmet>
+
         <Navbar />
         <section id="about">
         <div className="container mx-auto flex px-10 py-20 md:flex-row flex-col items-center">
