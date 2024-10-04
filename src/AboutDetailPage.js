@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import Navbar from "./components/Navbar";
+import BlogCarousel from './components/BlogCarousel';
 import { Helmet } from 'react-helmet';
 import './index.css';
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 class MyComponent extends Component {
   
@@ -10,6 +14,7 @@ class MyComponent extends Component {
     super(props);
     this.state = {
       data: null,
+      blog: null,
       loading: true,
       error: null
     };
@@ -35,20 +40,40 @@ class MyComponent extends Component {
           h2Elements.forEach(function(h3) {
             h3.className = "title-font sm:text-2xl text-2xl mb-4 font-medium text-white";
           });
-          console.log(tempElement.innerHTML);
-          // Get the modified HTML string
+          
+          var blogs = tempElement.querySelectorAll(".wp-block-newspack-blocks-carousel")
+
+          // Apply the class to each h2 element
+          blogs.forEach(function(blog) {
+            blog.remove();
+          }); 
+          
           let data = tempElement.innerHTML;
-        this.setState({ data, loading: false });
+        this.setState({ data: data });
       })
       .catch(error => {
         this.setState({ error: error.message, loading: false });
       });
+
+    fetch('https://public-api.wordpress.com/wp/v2/sites/hamdivazimblog.wordpress.com/posts')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error(JSON.stringify(response.json()));
+        }
+        return response.json();
+      })
+      .then(data => {
+        this.setState({ blog: data.slice(0, 4), loading: false });
+      })
+      .catch(error => {
+        this.setState({ error: error.message, loading: false });
+    });
   }
 
   
 
   render() {
-    const { data, loading, error } = this.state;
+    const { data, blog, loading, error } = this.state;
 
     if (loading) {
       return (
@@ -65,19 +90,25 @@ class MyComponent extends Component {
           </Helmet>
 
       <Navbar />
-      
-      <div className="container mx-auto flex px-20 py-20 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-            About Me
-          </h1>
-          <p className="mb-8 leading-relaxed">
-            View on WordPress at <a href="https://hamdivazimblog.wordpress.com/about/" style={{color:"#7F6FEA"}}>hamdivazimblog.wordpress.com</a>
-          </p>
-          <h2>Loading...</h2>
-        </div>
+    
 
-        
+      <div className="container mx-auto px-4 py-8">
+        <div className="lg:flex lg:justify-center">
+          <div className="lg:w-11/12">
+            <div>
+              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
+                  About Me 
+              </h1>
+              <p className="mb-8 leading-relaxed">
+                View on WordPress at <a href="https://hamdivazimblog.wordpress.com/about/" style={{color:"#7F6FEA"}}>hamdivazimblog.wordpress.com</a>
+              </p>
+              
+              <h2>Loading...</h2>
+
+            </div>
+            
+          </div>
+        </div>
       </div>
       
       </main>
@@ -99,19 +130,24 @@ class MyComponent extends Component {
           </Helmet>
 
       <Navbar />
-      
-      <div className="container mx-auto flex px-20 py-20 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-            About Me
-          </h1>
-          <p className="mb-8 leading-relaxed">
-            View on WordPress at <a href="https://hamdivazimblog.wordpress.com/about/" style={{color:"#7F6FEA"}}>hamdivazimblog.wordpress.com</a>
-          </p>
-          <h2>An error occured while retrieving the About Page. View the page <a href="https://hamdivazimblog.wordpress.com/about/" style={{color:"#7F6FEA"}}>directly on WordPress</a>.</h2>
-        </div>
 
-        
+      <div className="container mx-auto px-4 py-8">
+        <div className="lg:flex lg:justify-center">
+          <div className="lg:w-11/12">
+            <div>
+              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
+                  About Me 
+              </h1>
+              <p className="mb-8 leading-relaxed">
+                View on WordPress at <a href="https://hamdivazimblog.wordpress.com/about/" style={{color:"#7F6FEA"}}>hamdivazimblog.wordpress.com</a>
+              </p>
+              
+              <h2>An error occured while retrieving the About Page. View the page <a href="https://hamdivazimblog.wordpress.com/about/" style={{color:"#7F6FEA"}}>directly on WordPress</a>.</h2>
+
+            </div>
+            
+          </div>
+        </div>
       </div>
       
       </main>
@@ -134,21 +170,29 @@ class MyComponent extends Component {
 
       <Navbar />
       
-      <div className="container mx-auto flex px-20 py-20 md:flex-row flex-col items-center">
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-            About Me
-          </h1>
-          <p className="mb-8 leading-relaxed">
-            View on WordPress at <a href="https://hamdivazimblog.wordpress.com/about/" style={{color:"#7F6FEA"}}>hamdivazimblog.wordpress.com</a>
-          </p>
-          <div dangerouslySetInnerHTML={{ __html: data }} style={{color:"white",padding:"10px"}} class="post-content" />
+    
+      <div className="container mx-auto px-4 py-8">
+        <div className="lg:flex lg:justify-center">
+          <div className="lg:w-11/12">
+            <div>
+              <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
+                  About Me 
+              </h1>
+              <p className="mb-8 leading-relaxed">
+                View on WordPress at <a href="https://hamdivazimblog.wordpress.com/about/" style={{color:"#7F6FEA"}}>hamdivazimblog.wordpress.com</a>
+              </p>
+              
+              <div dangerouslySetInnerHTML={{ __html: data }} style={{color:"white",padding:"10px"}} class="post-content" />
+
+              <BlogCarousel filteredData={blog} />
+
+            </div>
+            
+          </div>
         </div>
       </div>
 
-        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          
-        </div>
+        
       
       </main>
     );
@@ -157,3 +201,4 @@ class MyComponent extends Component {
 
 export default MyComponent;
 
+//wp-block-newspack-blocks-carousel

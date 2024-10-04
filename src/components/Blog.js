@@ -1,6 +1,7 @@
 import { CodeIcon } from "@heroicons/react/solid";
 import { projects } from "../data";
 import React, { Component } from 'react';
+import BlogCarousel from './BlogCarousel';
 
 
 class MyComponent extends Component {
@@ -105,17 +106,10 @@ class MyComponent extends Component {
               View my latest blog posts here or view the <a href="/posts" style={{ color: "#7F6FEA" }} id="wp-link">blog homepage</a>.
             </p>
           </div>
-          <div className="flex flex-wrap -m-4">
-            {
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-4">
-                {data.map((post) => (
-                    <PostExcerpt key={post.id} item={post} className="col-span-1" />
-                ))}
-              </div>
 
+          <BlogCarousel filteredData={data} />
 
-            }
-          </div>
+          
         </div>
       </section>
     );

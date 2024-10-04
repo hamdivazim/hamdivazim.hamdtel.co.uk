@@ -1,6 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Slick carousel CSS */
+@import '~slick-carousel/slick/slick.css';
+@import '~slick-carousel/slick/slick-theme.css';
+
 
 .min-h-screen {
     min-height: 100vh;
@@ -90,5 +94,52 @@
     display: block;
     margin-top: 0.5em;
     font-style: normal;
+  }
+  
+
+
+  .carousel-container {
+    max-width: 1200px; /* Adjust as necessary */
+    margin: 0 auto; /* Center the carousel */
+    padding: 20px; /* Add padding around the carousel */
+  }
+  
+  .post-excerpt-wrapper {
+    padding: 10px; /* Add padding between post excerpts */
+  }
+  
+  /* Adjust arrows and center them */
+  .slick-prev, .slick-next {
+    z-index: 1; /* Ensure arrows are on top */
+    background-color: rgba(255, 255, 255, 0.8); /* Optional: make arrows visible */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  /* Position the arrows */
+  .slick-prev {
+    left: 10px; /* Ensure it's visible on mobile */
+  }
+  
+  .slick-next {
+    right: 10px; /* Ensure it's visible on mobile */
+  }
+  
+  /* Adjust dot styling */
+  .slick-dots {
+    bottom: -30px; /* Adjust positioning */
+  }
+  
+  .slick-dots li button:before {
+    font-size: 12px; /* Size of the dots */
+    color: #ccc; /* Color of inactive dots */
+  }
+  
+  .slick-dots li.slick-active button:before {
+    color: #333; /* Color of active dot */
   }
   
