@@ -1,6 +1,6 @@
 {
     "rewrites": [
-      { "source": "/medicalblog/(.*)", "destination": "http://hamdivazim-blog.elementfx.com/medical-wp/$1" }
+        { "source": "/medicalblog/(.*)", "destination": "http://hamdivazim-blog.elementfx.com/medical-wp/$1" }
     ]
-  }
+}
   
