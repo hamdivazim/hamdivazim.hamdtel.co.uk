@@ -23,7 +23,6 @@ function App() {
         <Route path="/posts/:id" element={<PostPage />} />
         <Route path="/projects" element={<MoreProjects />} />
 
-        <Route path="*" element={<NotFound />} />
 
       </Routes>
     </Router>
