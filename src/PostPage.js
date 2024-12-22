@@ -6,6 +6,7 @@ import hljs from 'highlight.js';
 import 'highlight.js/styles/atom-one-dark.css';
 import './index.css';
 import { Helmet } from 'react-helmet';
+import CusdisComments from './components/CusdisComments.js';
 
 class Comment {
   constructor(author, authorLink, postDate, content, replies, ID, parent, profile) {
@@ -153,6 +154,35 @@ function PostPage() {
     }
   }, [data, id]);
 
+  useEffect(() => {
+    const modifyIframeContent = () => {
+      const iframe = document.querySelector('iframe');
+  
+      if (iframe && iframe.contentWindow && iframe.contentDocument) {
+        const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
+  
+        iframe.style.width = "100%";
+        iframe.style.height = iframeDocument.body.scrollHeight + 'px';
+  
+        iframeDocument.body.style.backgroundColor = "#111827";
+      }
+    };
+  
+    modifyIframeContent();
+  
+    const intervalId = setInterval(modifyIframeContent, 500);
+  
+    const observer = new MutationObserver(modifyIframeContent);
+    observer.observe(document.body, { childList: true, subtree: true });
+  
+    return () => {
+      clearInterval(intervalId);
+      observer.disconnect();
+    };
+  }, []);
+  
+  
+
   if (loading) {
     return (
       <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
@@ -289,62 +319,22 @@ function PostPage() {
 
             <br /><br />
 
-            <div id="comments">
-              <h3 className="title-font sm:text-2xl text-xl mb-4 font-medium text-white">Comments</h3>
-              <p className="mb-8 leading-relaxed">
-                Make comments on WordPress at <a href={`https://hamdivazimblog.wordpress.com/?p=${id}#comments`} style={{ color: "#7F6FEA" }} id="wp-link">hamdivazimblog.wordpress.com</a>
-              </p>
-              {comments ? (
-  comments.map(comment => (
-    <div key={comment.ID} className="comment bg-gray-800 p-4 mb-4 rounded-lg">
-      <div className="flex items-center mb-2 text-gray-300">
-        <img src={comment.profile} alt={comment.author} className="w-8 h-8 rounded-full mr-2" />
-        <a href={comment.authorLink} style={{ color: "#7F6FEA" }}>{comment.author}</a>
-        <span className="mx-2">&bull;</span>
-        <span>{comment.postDate.toLocaleDateString()}</span>
-      </div>
-      <div className="comment-content text-gray-200" dangerouslySetInnerHTML={{ __html: comment.content }} />
+            <h3 class="title-font sm:text-2xl text-xl mb-4 font-medium text-white">Comments</h3>
 
-            {comment.replies.length > 0 && (
-              <details className="ml-8 mt-2">
-                <summary className="text-sm text-gray-400 cursor-pointer">View {comment.replies.length} {comment.replies.length > 1 ? 'replies' : 'reply'}</summary>
-                {comment.replies.map(reply => (
-                  <div key={reply.ID} className="reply bg-gray-700 p-3 mt-2 rounded-lg">
-                    <div className="flex items-center mb-2 text-gray-300">
-                      <img src={reply.profile} alt={reply.author} className="w-6 h-6 rounded-full mr-2" />
-                      <a href={reply.authorLink} style={{ color: "#7F6FEA" }}>{reply.author}</a>
-                      <span className="mx-2">&bull;</span>
-                      <span>{reply.postDate.toLocaleDateString()}</span>
-                    </div>
-                    <div className="comment-content" dangerouslySetInnerHTML={{ __html: reply.content }} />
+            
+            <CusdisComments
+              id="cusdis_thread"
+              attrs={{
+                pageId: `${id}`,
+                pageTitle: title,
+                pageUrl: window.location.href,
+              }}
+            />
+            
 
-                    {reply.replies.length > 0 && (
-                      <details className="ml-8 mt-2">
-                        <summary className="text-sm text-gray-400 cursor-pointer">View {reply.replies.length} {reply.replies.length > 1 ? 'replies' : 'reply'}</summary>
-                        {reply.replies.map(subReply => (
-                          <div key={subReply.ID} className="reply bg-gray-600 p-3 mt-2 rounded-lg">
-                            <div className="flex items-center mb-2 text-gray-300">
-                              <img src={subReply.profile} alt={subReply.author} className="w-6 h-6 rounded-full mr-2" />
-                              <a href={subReply.authorLink} style={{ color: "#7F6FEA" }}>{subReply.author}</a>
-                              <span className="mx-2">&bull;</span>
-                              <span>{subReply.postDate.toLocaleDateString()}</span>
-                            </div>
-                            <div className="comment-content" dangerouslySetInnerHTML={{ __html: subReply.content }} />
-                          </div>
-                        ))}
-                      </details>
-                    )}
-                  </div>
-                ))}
-              </details>
-            )}
-                  </div>
-                ))
-              ) : (
-                <p>Loading comments...</p>
-              )}
-            </div>
           </div>
+
+          
         </div>
       </div>
     </main>
