@@ -1,7 +1,7 @@
 import { ReactCusdis } from 'react-cusdis'
 
 export default function CusdisComments (props){
-  const appId = process.env.REACT_APP_CUSDIS_APP_ID; 
+  const appId = "acfa790b-5fb3-40b3-ba1e-d40f76943fa3"; 
 
   return(
     <div>
