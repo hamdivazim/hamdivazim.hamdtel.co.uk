@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request
 import json
+from flask_cors import CORS
 
 app = Flask(__name__)
 
 JSON_FILE_PATH = 'data.json'
 
+CORS(app)
 
 def load_data():
     try:
