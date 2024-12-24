@@ -119,9 +119,11 @@ function PostPage() {
         let date = new Date(resp.date);
         let content = processContent(resp.content.rendered);
 
+        let featuredImageURL = resp.jetpack_featured_media_url;
+
         setData(content[0]);
         setTitle(resp.title.rendered);
-        setExtras([date.toLocaleDateString(), content[1]]);
+        setExtras([date.toLocaleDateString(), content[1], featuredImageURL]);
 
         document.title = "hamdivazim - " + resp.title.rendered + " (#" + id + ")";
 
@@ -303,6 +305,27 @@ function PostPage() {
           <AllPosts />
         </main>
       );
+    } else if (error.message === "401") {
+      return (
+        <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
+
+          <Helmet>
+            <meta name="description" content={"Blog Post by Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog."} />
+            <meta name="keywords" content="blog, hamdivazim, Hamd, Hamd Waseem, Waseem, python, swift, sql, aws, database, tutorials" />
+            <meta property="og:title" content="Hamd Waseem - About" />
+            <meta property="og:description" content={"Blog Post - Hamd Waseem"} />
+            <meta property="og:image" content="./banner.png" />
+          </Helmet>
+
+          <Navbar />
+          <div className="container mx-auto px-4 py-8 text-red-300">
+            <div className="bg-red-700 border border-red-900 rounded p-4">
+              This blog post is coming soon or is not available. Find more posts below.
+            </div>
+          </div>
+          <AllPosts />
+        </main>
+      );
     } else {
       return (
         <main className="text-gray-400 bg-gray-900 body-font min-h-screen">
@@ -384,6 +407,8 @@ function PostPage() {
                 </button>
               )}
             </span>
+
+            <img src={extras[2]} className="rounded-lg w-1/2" />
 
 
             <div dangerouslySetInnerHTML={{ __html: data }} style={{ color: 'white', padding: '10px' }} className="post-content" />
