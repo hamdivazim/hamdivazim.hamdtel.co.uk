@@ -23,9 +23,9 @@ def get_data(post_id):
     if post_id not in data:
         data[post_id] = {"likes": 0, "views": 0, "liked_by": []}
 
-    client_ip = request.remote_addr
+    client_id = request.get_json().get("id")
 
-    liked = client_ip in data[post_id]["liked_by"]
+    liked = client_id in data[post_id]["liked_by"]
 
     data[post_id]["views"] += 1
 
@@ -41,16 +41,16 @@ def get_data(post_id):
 def like_post(post_id):
     data = load_data()
 
-    client_ip = request.remote_addr
+    client_id = request.get_json().get("id")
 
     if post_id not in data:
         data[post_id] = {"likes": 0, "views": 0, "liked_by": []}
 
-    already_liked = client_ip in data[post_id]["liked_by"]
+    already_liked = client_id in data[post_id]["liked_by"]
 
     if not already_liked:
         data[post_id]["likes"] += 1
-        data[post_id]["liked_by"].append(client_ip)
+        data[post_id]["liked_by"].append(client_id)
 
     post_data = {key: value for key, value in data[post_id].items() if key != 'liked_by'}
 
