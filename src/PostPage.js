@@ -165,6 +165,9 @@ function PostPage() {
           headers: {
             "Content-Type": "application/json",
           },
+          body: JSON.stringify({
+            "id": localStorage.getItem('user_token'),
+          }),
         });
         const metaResponse = await response.json();
         setMeta([metaResponse.updated.views, metaResponse.updated.likes, metaResponse.liked]);
@@ -186,7 +189,11 @@ function PostPage() {
         const iframeDocument = iframe.contentDocument || iframe.contentWindow.document;
   
         iframe.style.width = "100%";
-        iframe.style.height = iframeDocument.body.scrollHeight + 10 + 'px';
+        try {
+          iframe.style.height = iframeDocument.body.scrollHeight + 10 + 'px';
+        } catch (error) {
+          console.log("Error fixing cusdis iframe: ",error);
+        }
   
         iframeDocument.body.style.backgroundColor = "#111827";
       }
@@ -212,6 +219,9 @@ function PostPage() {
         headers: {
           "Content-Type": "application/json",
         },
+        body: JSON.stringify({
+          "id": localStorage.getItem('user_token'),
+        }),
       });
       const metaResponse = await response.json();
       setMeta([metaResponse.updated.views, metaResponse.updated.likes, true]);
