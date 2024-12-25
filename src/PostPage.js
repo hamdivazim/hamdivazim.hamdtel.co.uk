@@ -102,8 +102,15 @@ function PostPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
+  const [tags, setTags] = useState([]);
+  const [showAllTags, setShowAllTags] = useState(false);
+
   const [meta, setMeta] = useState([]);
   const [loadingMeta, setLoadingMeta] = useState(true);
+
+  const toggleTags = () => {
+    setShowAllTags((prevState) => !prevState);
+  };
 
   useEffect(() => {
     document.title = "hamdivazim - Blog Post" + " (#" + id + ")";
@@ -123,7 +130,9 @@ function PostPage() {
 
         setData(content[0]);
         setTitle(resp.title.rendered);
-        setExtras([date.toLocaleDateString(), content[1], featuredImageURL]);
+        setExtras([date.toLocaleDateString(), content[1], featuredImageURL, resp.link]);
+
+        setTags(resp.class_list.filter(item => item.startsWith('tag-')).map(item => item.replace('tag-', '')));
 
         document.title = "hamdivazim - " + resp.title.rendered + " (#" + id + ")";
 
@@ -408,7 +417,36 @@ function PostPage() {
               )}
             </span>
 
-            <img src={extras[2]} className="rounded-lg w-1/2" />
+            <div className="pt-4">
+              <div className="flex flex-wrap gap-2">
+                {tags.slice(0, showAllTags ? tags.length : 3).map((tag, index) => (
+                  <a
+                    key={index}
+                    href={`https://hamdivazimblog.wordpress.com/tag/${tag}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-indigo-500 text-white py-1 px-3 rounded-full text-sm transition-all duration-300 ease-in-out transform hover:bg-indigo-600"
+                  >
+                    {tag}
+                  </a>
+                ))}
+
+                {tags.length > 3 && (
+                  <button
+                    onClick={toggleTags}
+                    className={`py-1 px-3 rounded-full text-sm ${
+                      showAllTags
+                        ? "bg-green-500 text-white"
+                        : "bg-gray-300 text-black"
+                    } transition-all duration-300 ease-in-out transform hover:scale-105`}
+                  >
+                    {showAllTags ? "Show Less" : "Show More"}
+                  </button>
+                )}
+              </div>
+            </div>
+
+            <img src={extras[2]} className="rounded-lg w-1/2 pt-4" />
 
 
             <div dangerouslySetInnerHTML={{ __html: data }} style={{ color: 'white', padding: '10px' }} className="post-content" />

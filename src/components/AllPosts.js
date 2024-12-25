@@ -157,7 +157,17 @@ const PostExcerpt = ({ item }) => {
     return (
         <div className="bg-gray-800 border border-gray-700 rounded p-4">
             <a href={`/posts/${item.id}`}>
-                <h2 className="text-xl font-medium text-white mb-2" dangerouslySetInnerHTML={{ __html: item.title.rendered }}></h2>
+                <img src={item.jetpack_featured_media_url} className='border border-gray-700 rounded' />
+                <h2 className="text-xl font-medium text-white mb-2 mt-4" dangerouslySetInnerHTML={{ __html: item.title.rendered }}></h2>
+                <h6
+                  className="title-font sm:text-sm text-xs mb-4 font-medium text-white"
+                  style={{ display: "flex", alignItems: "center" }}
+                >
+                  <img src="../pfp.png" style={{ width: "30px", marginRight: "10px" }} alt="profile" />
+                  <span>hamdivazim</span>
+                  <span className="mx-2">&bull;</span>
+                  <span>{(new Date(item.date)).toLocaleDateString()}</span>
+                </h6>
                 <p className="text-gray-400 mb-4" dangerouslySetInnerHTML={{ __html: excerpt }}></p>
                 <p className="text-indigo-500 hover:text-indigo-400">Read more</p>
             </a>
