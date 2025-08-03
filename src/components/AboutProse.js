@@ -1,0 +1,22 @@
+export default function AboutProse() {
+    return (
+        <div className="prose prose-lg prose-invert max-w-none px-6 pb-6">
+            <p className="leading-relaxed mb-4">Hey 👋 I'm Hamd Waseem. I've been coding since I was six, and now I'm one of the youngest people to hold three AWS Certifications. I have experience in Python, web development, cloud computing and game development. This website is my home to showcase the projects I've made, and to write blog posts that teach others what I have learnt. I want to learn more about software engineering with Python, Swift, Next.js, Unity and so much more, and I want to make it easy for you to learn as well in bite sized posts.</p>
+            <h2 className="text-2xl font-semibold mt-5 mb-3">Background & Skills</h2>
+            <p className="leading-relaxed mb-4">I first learned Swift when I was six. I built simple games and programs before moving onto Python. I continued learning by coming up with random project ideas, and sitting down to make them.</p>
+            <p className="leading-relaxed mb-4">I never really followed tutorials that walked you step by step through projects - it didn’t feel like real learning to me. I instead made what I felt like making, and when I faced an error I simply searched it up and learnt how to fix it.</p>
+            <p className="leading-relaxed mb-4">I learnt tkinter, Flask, Django, Kivy, pytorch, matplotlib and so many more. At around the same time I was also learning HTML, CSS and JS.</p> 
+            <p className="leading-relaxed mb-4">At 13, I decided to pursue AWS. I learnt how the cloud works and to use AWS effectively, and then I earned the AWS Developer Associate, Solutions Architect and AI Practitioner at age 13.</p>
+            <p className="leading-relaxed mb-4">And since then, I've been learning React.js and Next.js, Unity & Godot and building my portfolio and blog.</p>
+            <h2 className="text-2xl font-semibold mt-5 mb-3">The Blog</h2>
+            <p className="leading-relaxed mb-4">My <a href="/blog" className="text-cyan-400 hover:text-cyan-300 hover:underline">blog</a> aims to host short but helpful posts, with guidance on how to solve issues, and how to use various frameworks. I will talk about programming languages such as Python and major frameworks. I will also discuss cloud concepts with AWS and in general. Expect useful tips and tricks on everything related to building software.</p>
+            <p className="leading-relaxed mb-4">I also post videos on my YouTube at <a href="https://youtube.com/@hamdivazim" className="text-cyan-400 hover:text-cyan-300 hover:underline">@hamdivazim</a>. I post walkthroughs for programming in Python and Next.js and through AWS consoles, also explaining key concepts in a digestable way.</p>
+            <h2 className="text-2xl font-semibold mt-5 mb-3">Projects</h2>
+            <p className="leading-relaxed mb-4">I’ve worked on a range of projects, from a simple e-commerce app for iOS to a Google data analysis notebook in Python, and even a fully scalable architecture with AWS! A full list of both my released projects and upcoming projects is at <a href="/projects" className="text-cyan-400 hover:text-cyan-300 hover:underline">/projects</a>, so feel free to check them out, or check out my GitHub at <a href="https://github.com/hamdivazim" className="text-cyan-400 hover:text-cyan-300 hover:underline">hamdivazim</a>!</p>
+            <h2 className="text-2xl font-semibold mt-5 mb-3">Contact</h2>
+            <p className="leading-relaxed mb-4">I'm available via email at <a href="mailto:hamd.waseem@hamdtel.co.uk" className="text-cyan-400 hover:text-cyan-300 hover:underline">hamd.waseem@hamdtel.co.uk</a> or <a href="mailto:hamdi.vazim@gmail.com" className="text-cyan-400 hover:text-cyan-300 hover:underline">hamdi.vazim@gmail.com</a>.</p>
+            <p className="leading-relaxed mb-4"></p>
+            <p className="leading-relaxed mb-4">Thank you so much for exploring my portfolio! Feel free to check out my <a href="/blog" className="text-cyan-400 hover:text-cyan-300 hover:underline">blog</a>, my <a href="/projects" className="text-cyan-400 hover:text-cyan-300 hover:underline">latest projects</a>, my <a href="/devlog" className="text-cyan-400 hover:text-cyan-300 hover:underline">devlog</a> or if you'd like to get in touch, email me via the links above. I'd love to hear from you!</p>
+        </div>
+    )
+}

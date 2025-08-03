@@ -1,51 +1,38 @@
 {
-  "name": "my-portfolio",
-  "version": "0.1.0",
+  "name": "hamdivazim-portfolio",
+  "version": "4.0.0",
   "private": true,
-  "dependencies": {
-    "@craco/craco": "^7.1.0",
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@heroicons/react": "^1.0.1",
-    "@mui/material": "^5.15.15",
-    "browserslist": "^4.24.0",
-    "highlight.js": "^11.10.0",
-    "prismjs": "^1.29.0",
-    "react": "^17.0.2",
-    "react-cusdis": "^2.1.3",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
-    "react-router-dom": "^6.26.2",
-    "react-scripts": "^5.0.1",
-    "react-slick": "^0.30.2",
-    "slick-carousel": "^1.8.1"
-  },
   "scripts": {
-    "start": "craco start",
-    "build": "craco build",
-    "test": "craco test",
-    "eject": "react-scripts eject"
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+  "dependencies": {
+    "@notionhq/client": "^4.0.1",
+    "@vercel/analytics": "^1.5.0",
+    "clsx": "^2.1.1",
+    "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.23.9",
+    "highlight.js": "^11.11.1",
+    "keen-slider": "^6.8.6",
+    "lucide-react": "^0.535.0",
+    "markdown-it": "^14.1.0",
+    "markdown-it-container": "^4.0.0",
+    "markdownx": "^0.2.2",
+    "next": "15.4.4",
+    "react": "19.1.0",
+    "react-cache-kit": "^1.0.3",
+    "react-dom": "19.1.0",
+    "react-icons": "^5.5.0",
+    "react-intersection-observer": "^9.16.0"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.25.4",
-    "autoprefixer": "^10.4.20",
-    "babel-loader": "^9.2.1",
-    "css-loader": "^7.1.2",
-    "postcss": "^8.4.47",
-    "postcss-loader": "^8.1.1",
-    "style-loader": "^4.0.0",
-    "tailwindcss": "^3.4.13"
-  },
-  "browserslist": [
-    ">0.2%",
-    "last 2 versions",
-    "not ie <= 11",
-    "not op_mini all"
-  ]
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
+    "@tailwindcss/typography": "^0.5.16",
+    "eslint": "^9",
+    "eslint-config-next": "15.4.4",
+    "tailwindcss": "^4"
+  }
 }

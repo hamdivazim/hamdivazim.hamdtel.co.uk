@@ -1,25 +1,16 @@
 {
-  "short_name": "Hamd Waseem Blog",
-  "name": "Hamd Waseem's Blog and Portfolio",
-  "icons": [
-    {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
-    },
-    {
-      "src": "logo192.png",
-      "type": "image/png",
-      "sizes": "192x192"
-    },
-    {
-      "src": "logo512.png",
-      "type": "image/png",
-      "sizes": "512x512"
-    }
-  ],
-  "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+    "name": "Hamd Waseem - Portfolio",
+    "short_name": "Hamd Waseem",
+    "description": "Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog.",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#1E3A8A",
+    "theme_color": "#1E1B4B",
+    "icons": [
+        {
+            "src": "/favicon.ico",
+            "sizes": "any",
+            "type": "image/x-icon"
+        }
+    ]
 }
