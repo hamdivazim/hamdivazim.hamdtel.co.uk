@@ -63,7 +63,7 @@ export default function ProjectsPreview() {
             </h1>
 
           <p className="text-white font-mono text-lg mb-4">
-            I'm experienced in a variety of programming languages, technologies, and cloud concepts, such as Python, SQL, and AWS.
+            I&apos;m experienced in a variety of programming languages, technologies, and cloud concepts, such as Python, SQL, and AWS.
           </p>
 
 

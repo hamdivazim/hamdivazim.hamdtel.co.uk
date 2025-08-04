@@ -2,6 +2,7 @@ import FadeInSection from "../client/hooks/FadeIn";
 import { FaPenNib, FaDev, FaYoutube } from "react-icons/fa";
 import Button from "../Button";
 import PostCard from "../PostCard";
+import Link from "next/link";
 
 export default function ProjectsPreview({ posts }) {
   return (
@@ -14,7 +15,7 @@ export default function ProjectsPreview({ posts }) {
 
       <FadeInSection className="mb-35 mt-35 sm:mb-0 sm:mt-0">
         <div className="max-w-7xl w-full">
-        <a
+        <Link
             href="/blog"
             className="inline-block group cursor-pointer"
         >
@@ -27,7 +28,7 @@ export default function ProjectsPreview({ posts }) {
                 <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-indigo-300 transition-all duration-300 group-hover:w-full" />
                 </span>
             </h1>
-        </a>
+        </Link>
 
           <p className="text-white font-mono text-lg mb-10">
             Here are some of my latest blog posts, covering topics like web development, cloud computing, and programming insights. Click any post to dive deeper.

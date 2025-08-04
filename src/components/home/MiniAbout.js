@@ -18,7 +18,7 @@ export default function MiniAbout() {
                             <FaUser className="text-blue-300" /> About Me
                         </h1>
                         <p className="font-mono text-lg text-white mb-4">
-                            I've been building apps and games since I was six. Now at age 14, I'm triple‑AWS certified - passionate about Python, Swift, web and cloud development, AI and data science, and always learning something new.
+                            I&apos;ve been building apps and games since I was six. Now at age 14, I&apos;m triple‑AWS certified - passionate about Python, Swift, web and cloud development, AI and data science, and always learning something new.
                         </p>
                         <Button accented href="/about">
                             Read More
