@@ -7,13 +7,12 @@ export default function ProjectsSearch({ projects }) {
   const [search, setSearch] = useState('');
   const [submittedSearch, setSubmittedSearch] = useState('');
 
-  // Debounce effect: update `submittedSearch` 400ms after user stops typing
   useEffect(() => {
     const delay = setTimeout(() => {
       setSubmittedSearch(search.trim().toLowerCase());
     }, 400);
 
-    return () => clearTimeout(delay); // cleanup on retype
+    return () => clearTimeout(delay);
   }, [search]);
 
   const filteredProjects = useMemo(() => {

@@ -36,8 +36,6 @@ export default function ProjectsPage({ projects }) {
                 </div>
             </div>
     
-    
-            {/* Main content area */}
             <div className="mx-auto flex flex-col lg:flex-row gap-6">
                 <div className="w-full lg:w-2/3">
                     {projects.map((project, idx) => (
