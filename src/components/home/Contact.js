@@ -156,7 +156,7 @@ export default function Contact({ status }) {
                 </h3>
                 <p className="mt-1 text-sm text-green-100/80">
                   Thanks for getting in touch. Your message has reached my inbox
-                  and I'll get back to you as soon as possible.
+                  and I&apos;ll get back to you as soon as possible.
                 </p>
               </div>
             </div>
@@ -176,7 +176,7 @@ export default function Contact({ status }) {
                   Something went wrong
                 </h3>
                 <p className="mt-1 text-sm text-red-100/80">
-                  Your message couldn't be sent. Please try again in a moment.
+                  Your message couldn&apos;t be sent. Please try again in a moment.
                 </p>
               </div>
             </div>
@@ -216,7 +216,7 @@ export default function Contact({ status }) {
                   Too many submissions
                 </h3>
                 <p className="mt-1 text-sm text-amber-100/80">
-                  You've sent too many messages in a short period.
+                  You&apos;ve sent too many messages in a short period.
                   Please wait a little while before trying again.
                 </p>
               </div>
