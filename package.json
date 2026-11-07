@@ -1,6 +1,6 @@
 {
   "name": "hamdivazim-portfolio",
-  "version": "4.0.0",
+  "version": "4.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -14,9 +14,12 @@
   },
   "dependencies": {
     "@notionhq/client": "^4.0.1",
+    "@upstash/ratelimit": "^2.2.0",
+    "@upstash/redis": "^1.41.0",
     "@vercel/analytics": "^1.5.0",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
+    "escape-html": "^1.0.3",
     "framer-motion": "^12.23.9",
     "highlight.js": "^11.11.1",
     "keen-slider": "^6.8.6",

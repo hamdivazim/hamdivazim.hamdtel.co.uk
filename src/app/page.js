@@ -15,9 +15,11 @@ export const revalidate = 60;
 
 export const metadata = getMeta(`${defaultSEO.title}`, defaultSEO.description, `${defaultSEO.rootURL}/`, defaultSEO.image);
 
-export default async function Home() {
+export default async function Home({ searchParams }) {
   const projects = await getRecentProjects();
   const posts = await getRecentPosts();
+
+  const params = await searchParams;
 
   return (
     <div className="font-sans">
@@ -29,7 +31,7 @@ export default async function Home() {
         <ProjectsPreview prjcts={projects} />
         <BlogPreview posts={posts} />
         <Skills />
-        <Contact />
+        <Contact status={params.contact} />
       </main>
       
       <footer>
