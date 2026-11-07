@@ -4,7 +4,7 @@ export function getMeta(title, desc, url, image, ogtype="website") {
         title: title,
         description: desc,
 
-        keywords: ['Next.js', 'SEO', 'react', 'typescript', '2025', 'hamd', 'hamdwaseem', 'hamdivazim', 'python', 'aws', 'awscertified', 'blog', 'developerblog'],
+        keywords: ['Next.js', 'SEO', 'react', 'typescript', `${new Date().getFullYear()}`, 'hamd', 'hamdwaseem', 'hamdivazim', 'python', 'aws', 'awscertified', 'blog', 'developerblog'],
         generator: 'Next.js 15',
         applicationName: 'Hamd Waseem - Portfolio',
         referrer: 'strict-origin-when-cross-origin',
@@ -53,4 +53,12 @@ export function getMeta(title, desc, url, image, ogtype="website") {
         manifest: '/manifest.json'
 
     };
+}
+
+export const defaultSEO = {
+  title: 'Hamd Waseem - Portfolio',
+  description: "Hamd Waseem's Blog - A 15-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog.",
+  blogDescription: "Written by Hamd Waseem - A 15-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog.",
+  rootURL: "https://hamdivazim.hamdtel.co.uk",
+  image: "/assets/banner.png"
 }
