@@ -9,11 +9,11 @@ import Contact from "@/components/home/Contact";
 import { getRecentProjects } from "@/components/lib/notion";
 import { getRecentPosts } from "@/components/lib/devto";
 //import QCBackground from "@/components/QCBackground";
-import { getMeta } from "@/components/lib/seo";
+import { getMeta, defaultSEO } from "@/components/lib/seo";
 
 export const revalidate = 60;
 
-export const metadata = getMeta("Hamd Waseem - Portfolio", "Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog.", "https://hamdivazim.hamdtel.co.uk/", "/assets/banner.png");
+export const metadata = getMeta(`${defaultSEO.title}`, defaultSEO.description, `${defaultSEO.rootURL}/`, defaultSEO.image);
 
 export default async function Home() {
   const projects = await getRecentProjects();

@@ -3,10 +3,9 @@ import Navbar from "@/components/client/Navbar";
 import Footer from "@/components/Footer";
 import Button from "@/components/Button";
 import { FaPenNib, FaProjectDiagram } from "react-icons/fa";
-import { getMeta } from "@/components/lib/seo";
+import { getMeta, defaultSEO } from "@/components/lib/seo";
 
-export const metadata = getMeta("Hamd Waseem - Portfolio", "Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog.", "https://hamdivazim.hamdtel.co.uk/", "/assets/banner.png");
-
+export const metadata = getMeta(`${defaultSEO.title}`, defaultSEO.description, `${defaultSEO.rootURL}/`, defaultSEO.image);
 
 export default function NotFound() {
   return (

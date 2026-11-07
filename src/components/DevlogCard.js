@@ -16,7 +16,8 @@ const notionToTailwind = {
 export default function DevlogCard({ props, className }) {
   const title = props.title?.rich_text[0]?.text.content || 'Untitled';
   const body = props.body?.rich_text[0]?.text.content || '';
-  const imageUrl = props.image?.files[0].external?.url ||  '/assets/placeholder.png';
+  const fileObj = props.image?.files?.[0];
+  const imageUrl = fileObj?.external?.url || fileObj?.file?.url || '/assets/placeholder.png';
   const tags = props.tags?.multi_select || [];
   const date = props.date?.date.start;
 

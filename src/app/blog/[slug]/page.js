@@ -2,7 +2,7 @@ import { getAllSlugs, getPostBySlug, getRecentPosts } from '../../../components/
 import { notFound } from 'next/navigation';
 import PostPage from '@/components/PostPage';
 import Footer from '@/components/Footer';
-import { getMeta } from '@/components/lib/seo';
+import { getMeta, defaultSEO } from '@/components/lib/seo';
 
 export const revalidate = 3600;
 
@@ -12,14 +12,14 @@ export async function generateMetadata({ params }) {
     let prms = await params;
     post = await getPostBySlug(prms.slug);
     return getMeta(
-        post.title + " | Hamd Waseem's Blog",
-        post.description + " | Written by Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog.",
-        "https://hamdivazim.hamdtel.co.uk/blog/"+post.slug,
+        post.title + ` | ${defaultSEO.title}`,
+        post.description + " | " + defaultSEO.blogDescription,
+        `${defaultSEO.rootURL}/blog/`+post.slug,
         post.social_image,
         "article"
     );
   } catch {
-    return getMeta("Hamd Waseem - Portfolio", "Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog.", "https://hamdivazim.hamdtel.co.uk/", "/assets/banner.png", "article");
+    return getMeta(defaultSEO.title, defaultSEO.description, `${defaultSEO.rootURL}/`, defaultSEO.image, "article");
   }
 
 }

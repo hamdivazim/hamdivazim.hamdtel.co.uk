@@ -3,11 +3,11 @@ import { getRecentPosts } from '@/components/lib/devto';
 import { notFound } from 'next/navigation';
 import AboutPage from '@/components/AboutPage';
 import Footer from '@/components/Footer';
-import { getMeta } from '@/components/lib/seo';
+import { getMeta, defaultSEO } from '@/components/lib/seo';
 
 export const revalidate = 3600;
 
-export const metadata = getMeta("About | Hamd Waseem - Portfolio", "Hamd Waseem - A 13-year-old who has built many projects using Python, Swift, Unity and more, is AWS certified and has a blog.", "https://hamdivazim.hamdtel.co.uk/about", "/assets/banner.png", "profile");
+export const metadata = getMeta(`About | ${defaultSEO.title}`, defaultSEO.description, `${defaultSEO.rootURL}/about`, defaultSEO.image, "profile");
 
 export default async function About() {
   let otherPosts;

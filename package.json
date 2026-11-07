@@ -8,6 +8,10 @@
     "start": "next start",
     "lint": "next lint"
   },
+  "overrides": {
+    "postcss": "^8.5.23",
+    "postcss-selector-parser": "^6.1.5"
+  },
   "dependencies": {
     "@notionhq/client": "^4.0.1",
     "@vercel/analytics": "^1.5.0",
@@ -19,8 +23,7 @@
     "lucide-react": "^0.535.0",
     "markdown-it": "^14.1.0",
     "markdown-it-container": "^4.0.0",
-    "markdownx": "^0.2.2",
-    "next": "15.4.4",
+    "next": "^15.5.29",
     "react": "19.1.0",
     "react-cache-kit": "^1.0.3",
     "react-dom": "19.1.0",
@@ -32,7 +35,7 @@
     "@tailwindcss/postcss": "^4",
     "@tailwindcss/typography": "^0.5.16",
     "eslint": "^9",
-    "eslint-config-next": "15.4.4",
+    "eslint-config-next": "^15.5.29",
     "tailwindcss": "^4"
   }
 }

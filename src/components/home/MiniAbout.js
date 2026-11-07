@@ -1,6 +1,7 @@
 import FadeInSection from "../client/hooks/FadeIn";
 import { FaUser } from "react-icons/fa";
 import Button from "../Button";
+import Image from "next/image";
 
 export default function MiniAbout() {
     return (
@@ -18,7 +19,7 @@ export default function MiniAbout() {
                             <FaUser className="text-blue-300" /> About Me
                         </h1>
                         <p className="font-mono text-lg text-white mb-4">
-                            I&apos;ve been building apps and games since I was six. Now at age 14, I&apos;m triple‑AWS certified - passionate about Python, Swift, web and cloud development, AI and data science, and always learning something new.
+                            I&apos;ve been building apps and games since I was six. Now at age 15, I&apos;m triple‑AWS certified - passionate about Python, Swift, web and cloud development, AI and data science, and always learning something new.
                         </p>
                         <Button accented href="/about">
                             Read More
@@ -26,7 +27,12 @@ export default function MiniAbout() {
                     </div>
 
                     <div className="sm:w-1/3 flex justify-center items-center">
-                        <img src="assets/undraw_coding_joxb.svg" alt="Coding Illustration" />
+                        <Image 
+                            src="/assets/undraw_coding_joxb.svg" 
+                            alt="Coding Illustration" 
+                            width={1000}
+                            height={1000}
+                        />
                     </div>
                 </div>
             </FadeInSection>
