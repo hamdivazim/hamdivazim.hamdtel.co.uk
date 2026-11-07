@@ -1,11 +1,11 @@
 import { Parkinsans, Space_Mono, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import 'highlight.js/styles/github-dark.css';
 import { Analytics } from '@vercel/analytics/next'
 
 const parkinsans = Parkinsans({
   variable: "--font-parkinsans",
   subsets: ["latin"],
+  fallback: ["Arial", "sans-serif"],
 });
 
 const spaceMono = Space_Mono({
