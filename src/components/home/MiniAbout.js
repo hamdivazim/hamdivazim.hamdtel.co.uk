@@ -1,6 +1,7 @@
 import FadeInSection from "../client/hooks/FadeIn";
 import { FaUser } from "react-icons/fa";
 import Button from "../Button";
+import Image from "next/image";
 
 export default function MiniAbout() {
     return (
@@ -26,7 +27,12 @@ export default function MiniAbout() {
                     </div>
 
                     <div className="sm:w-1/3 flex justify-center items-center">
-                        <img src="assets/undraw_coding_joxb.svg" alt="Coding Illustration" />
+                        <Image 
+                            src="/assets/undraw_coding_joxb.svg" 
+                            alt="Coding Illustration" 
+                            width={1000}
+                            height={1000}
+                        />
                     </div>
                 </div>
             </FadeInSection>
