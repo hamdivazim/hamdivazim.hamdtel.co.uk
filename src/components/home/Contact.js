@@ -129,7 +129,6 @@ export default function Contact({ status }) {
                 className="cf-turnstile"
                 data-sitekey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY}
                 data-theme="dark"
-                data-appearance="interaction-only"
                 data-action="contact"
               />
             </div>
