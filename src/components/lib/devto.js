@@ -1,7 +1,6 @@
 import MarkdownIt from 'markdown-it';
 import hljs from 'highlight.js';
-
-// todo - fix code highlighting and styling not working
+import 'highlight.js/styles/github-dark.css';
 
 export async function getRecentPosts(num=3) {
   const res = await fetch(`https://dev.to/api/articles?username=hamdivazim&per_page=${num}`, {
@@ -32,14 +31,18 @@ export async function getPostBySlug(slug) {
 
 export function mdToHTML(markdown) {
   const md = new MarkdownIt({
+    html: true,
     highlight: function (str, lang) {
       if (lang && hljs.getLanguage(lang)) {
         try {
-          return `<pre class="hljs rounded-lg overflow-x-auto text-sm my-4"><code class="language-${lang}">${hljs.highlight(str, { language: lang }).value}</code></pre>`;
+          return hljs.highlight(str, {
+            language: lang,
+            ignoreIllegals: true
+          }).value;
         } catch (_) {}
       }
 
-      return `<pre class="hljs rounded-lg overflow-x-auto text-sm my-4"><code>${md.utils.escapeHtml(str)}</code></pre>`;
+      return '';
     },
   });
 
@@ -65,7 +68,24 @@ export function mdToHTML(markdown) {
 
   md.renderer.rules.fence = (tokens, idx) => {
     const token = tokens[idx];
-    return `<pre class="bg-gray-900 p-4 rounded-lg overflow-x-auto mb-6 text-sm"><code>${md.utils.escapeHtml(token.content)}</code></pre>\n`;
+    const info = token.info.trim().split(/\s+/)[0];
+
+    let highlighted;
+
+    try {
+      if (info && hljs.getLanguage(info)) {
+        highlighted = hljs.highlight(token.content, {
+          language: info,
+          ignoreIllegals: true
+        }).value;
+      } else {
+        highlighted = hljs.highlightAuto(token.content).value;
+      }
+    } catch (_) {
+      highlighted = md.utils.escapeHtml(token.content);
+    }
+
+    return `<pre class="hljs bg-gray-900 p-4 rounded-lg overflow-x-auto mb-6 text-sm"><code>${highlighted}</code></pre>\n`;
   };
 
   md.renderer.rules.image = (tokens, idx) => {
